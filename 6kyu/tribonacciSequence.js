@@ -15,13 +15,10 @@ Signature will always contain 3 numbers; n will always be a non-negative number;
 
 */
 
-//fibonacci([1, 1, 1], 10);
-//fibonacci([0, 0, 1], 10);
-
 function tribonacci(signature, n) {
-  var arr = signature;
-  for (let i = 0; i < n - 3; i++) {
-    arr.push(arr[i] + arr[i + 1] + arr[i + 2]);
+  let arr = [...signature];
+  for (let i = 0; i < n; i++) {
+    arr.push(arr.slice(i, i + 3).reduce((a, c) => a + c, 0));
   }
-  return arr;
+  return arr.slice(0, -3);
 }
