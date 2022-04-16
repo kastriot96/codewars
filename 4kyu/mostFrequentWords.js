@@ -26,3 +26,12 @@ Bonus points (not really, but just for fun):
 Avoid creating an array whose memory footprint is roughly as big as the input text.
 Avoid sorting the entire array of unique words.
 */
+function topThreeWords(text) {
+  //map returns an array of the special characters in the each word
+  return text
+    .split(" ")
+    .map((el) => el.replace(/[^a-zA-Z ]/g, ""))
+    .toLowerCase();
+
+  console.log(modifiedText);
+}
