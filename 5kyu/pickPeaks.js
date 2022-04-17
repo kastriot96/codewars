@@ -15,3 +15,14 @@ Also, beware of plateaus !!! [1, 2, 2, 2, 1] has a peak while [1, 2, 2, 2, 3] an
 
 Have fun!
 */
+//https://www.codewars.com/kata/5279f6fe5ab7f447890006a7/train/javascript
+
+function pickPeaks(arr) {
+  let peak = Math.max(...arr);
+  peak.push(arr.peak);
+  let pos = arr.indexOf(maxNum);
+  pos.push(pos);
+  return { pos: [], peaks: [] };
+}
+
+pickPeaks([1, 2, 3, 3, 3, 6, 2]);
