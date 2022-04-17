@@ -12,8 +12,14 @@ function humanReadable(seconds) {
   let hours = (seconds % (60 * 60 * 24)) / (60 * 60);
   let minutes = (seconds % (60 * 60)) / 60;
   let sec = seconds % 60;
-  return `${("0" + hours).slice(-2)}:${("0" + minutes).slice(-2)}:${(
-    "0" + sec
-  ).slice(-2)}`;
+
+  const val = (par) => {
+    if (par < 10) {
+      return "0" + par;
+    } else {
+      return val;
+    }
+  };
+  return val(hours) + ":" + val(minutes) + ":" + val(sec);
 }
 humanReadable(86399);
