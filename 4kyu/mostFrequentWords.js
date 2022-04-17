@@ -26,6 +26,7 @@ Bonus points (not really, but just for fun):
 Avoid creating an array whose memory footprint is roughly as big as the input text.
 Avoid sorting the entire array of unique words.
 */
+/*
 function topThreeWords(text) {
   //map returns an array of the special characters in the each word
   return text
@@ -34,4 +35,31 @@ function topThreeWords(text) {
     .toLowerCase();
 
   console.log(modifiedText);
+}
+*/
+function topThreeWords(text) {
+  const cleanString = text
+      .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+      .toLowerCase(),
+    words = cleanString.match(/\S+/g) || [],
+    frequencies = {};
+  let word, frequency, i;
+
+  for (i = 0; i < words.length; i++) {
+    if (words[i].match(/^[\\']+$/)) {
+      word = [];
+    } else {
+      word = words[i];
+      frequencies[word] = frequencies[word] || 0;
+      frequencies[word]++;
+    }
+  }
+
+  frequency = Object.keys(frequencies);
+
+  return frequency
+    .sort(function (a, b) {
+      return frequencies[b] - frequencies[a];
+    })
+    .slice(0, 3);
 }
