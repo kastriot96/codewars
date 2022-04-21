@@ -20,5 +20,18 @@ perimeter(7)  should return 216
 */
 
 function perimeter(n) {
-  return n;
+  let fib = [0, 1];
+  let data = [];
+
+  for (let i = 2; i <= n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+    data.push(fib[i]);
+  }
+
+  let array = [0, 1].concat(data);
+  let sumArray = array.reduce((a, c) => a + c, 0);
+
+  return sumArray * 4;
 }
+
+perimeter(6);
