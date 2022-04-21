@@ -23,7 +23,7 @@ function perimeter(n) {
   let fib = [0, 1];
   let data = [];
 
-  for (let i = 2; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     fib[i] = fib[i - 1] + fib[i - 2];
     data.push(fib[i]);
   }
@@ -35,3 +35,28 @@ function perimeter(n) {
 }
 
 perimeter(6);
+
+/*
+function perimeter(n) {
+  let arr = [1, 1];
+  for (let i = 0; i < n - 1; i++) {
+    arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
+  }
+  return 4 * arr.reduce((sum, num) => sum + num, 0);
+}
+
+perimeter(5);
+*/
+
+/*
+function perimeter(n) {
+  const a = [1, 1];
+  let sum = 2;
+  for (let i = 2; i <= n; i++) {
+    const next = a[i-2] + a[i-1];
+    sum += next;
+    a.push(next);
+  }
+  return 4 * sum;
+}
+*/
