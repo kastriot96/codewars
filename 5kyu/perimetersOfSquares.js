@@ -39,10 +39,10 @@ perimeter(6);
 /*
 function perimeter(n) {
   let arr = [1, 1];
-  for (let i = 0; i < n - 1; i++) {
+  for (let i = 2; i < n ; i++) {
     arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
   }
-  return 4 * arr.reduce((sum, num) => sum + num, 0);
+  return 4 * arr.reduce((sum, num) => sum + num, 8);
 }
 
 perimeter(5);
