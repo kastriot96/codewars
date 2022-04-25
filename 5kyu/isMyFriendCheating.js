@@ -34,4 +34,16 @@ See examples of returns for each language in "RUN SAMPLE TESTS"
 
 
 */
-function removeNb(n) {}
+function removeNb(n) {
+  const sum = (n * (n + 1)) / 2;
+  let result = [];
+
+  for (let b = n; b > 0; b--) {
+    a = (sum - b) / (b + 1);
+
+    if (a < n && Number.isInteger(a)) {
+      result.push([a, b]);
+    }
+  }
+  return result;
+}
