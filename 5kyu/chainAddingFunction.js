@@ -23,4 +23,7 @@ We can assume any number being passed in will be valid whole number.
 */
 function add(n) {
   // Let the currying begin!
+  return function (y) {
+    return n + y;
+  };
 }
