@@ -22,8 +22,8 @@ addTwo(3)(5); // == 10
 We can assume any number being passed in will be valid whole number.
 */
 function add(n) {
-  // Let the currying begin!
-  return function (y) {
-    return n + y;
-  };
+  const sum = (y) => add(n + y);
+  sum.valueOf = () => n;
+
+  return sum;
 }
