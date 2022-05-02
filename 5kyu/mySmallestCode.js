@@ -26,6 +26,62 @@ You may assume that the , command will never be invoked when the input stream is
 Error-handling, e.g. unmatched square brackets and/or memory pointer going past the leftmost cell is not required in this Kata. If you see test cases that require you to perform error-handling then please open an Issue in the Discourse for this Kata (don't forget to state which programming language you are attempting this Kata in).
 
 */
-function brainLuck(code, input) {
+
+function brain_luck(code, inputs) {
+  let bracket_counter,
+    code_ptr,
+    data,
+    data_ptr,
+    direction,
+    inputl,
+    inst,
+    output;
+  inputl = list(inputs);
+  code_ptr = data_ptr = 0;
+  data = [0];
+  output = "";
+
+  while (code_ptr !== code.length) {
+    inst = code[code_ptr];
+
+    if (inst === ".") {
+      output += chr(data[data_ptr]);
+    }
+
+    if (inst === ",") {
+      data[data_ptr] = ord(inputl.pop(0));
+    }
+
+    if (_pj.in_es6(inst, lessmore_value)) {
+      data_ptr += lessmore_value[inst];
+
+      if (data_ptr === data.length) {
+        data.append(0);
+      }
+    }
+
+    if (_pj.in_es6(inst, plusminus_value)) {
+      data[data_ptr] += plusminus_value[inst];
+      data[data_ptr] %= 256;
+    }
+
+    if (
+      (inst === "[" && data[data_ptr] === 0) ||
+      (inst === "]" && data[data_ptr] !== 0)
+    ) {
+      direction = bracket_counter = brc_value[inst];
+
+      while (!(code[code_ptr] === brc_pair[inst] && bracket_counter === 0)) {
+        code_ptr += direction;
+
+        if (_pj.in_es6(code[code_ptr], brc_value)) {
+          bracket_counter += brc_value[code[code_ptr]];
+        }
+      }
+    }
+
+    code_ptr += 1;
+  }
+
   return output;
 }
