@@ -18,4 +18,29 @@ anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 Note for Go
 For Go: Empty string slice is expected when there are no anagrams found.
 */
-function anagrams(word, words) {}
+
+function anagrams(word, words) {
+  //return ascii sum of word
+  let suma = 0;
+  for (let i = 0; i < word.length; i++) {
+    suma += word.charCodeAt(i);
+    return suma;
+  }
+
+  //return ascii sum of words
+  let sumaWords = 0;
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      sumaWords += words[i].charCodeAt(j);
+    }
+    return sumaWords;
+  }
+
+  //compare ascii sum of word and words
+
+  if (suma === sumaWords) {
+    return true;
+  } else {
+    return false;
+  }
+}
