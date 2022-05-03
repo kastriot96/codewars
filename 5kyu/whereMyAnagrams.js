@@ -44,3 +44,14 @@ function anagrams(word, words) {
     return false;
   }
 }
+
+/* just a silly copied solution */
+
+/* 
+function anagrams(word, words) {
+  return words.filter(function(item){
+    return item.split('').sort().join('') === word.split('').sort().join('');
+  });
+}
+
+*/
