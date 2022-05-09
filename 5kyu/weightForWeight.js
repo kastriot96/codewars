@@ -25,5 +25,9 @@ For C: The result is freed.
 
 */
 function orderWeight(strng) {
-  // your code
+  let sum = 0;
+  for (let i = 0; i < strng.length; i++) {
+    sum += parseInt(strng[i]);
+  }
+  return sum;
 }
