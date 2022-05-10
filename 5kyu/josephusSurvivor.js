@@ -18,5 +18,13 @@ Notes and tips: using the solution to the other kata to check your function may 
 */
 
 function josephusSurvivor(n, k) {
-  //your code here
+  let arr = [];
+  for (let i = 1; i <= n; i++) {
+    arr.push(i);
+  }
+  let j = 0;
+  while (arr.length > 1) {
+    j = (j + k - 1) % arr.length;
+    arr.splice(j, 1);
+  }
 }
