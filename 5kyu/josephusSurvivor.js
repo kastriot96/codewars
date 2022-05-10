@@ -18,13 +18,13 @@ Notes and tips: using the solution to the other kata to check your function may 
 */
 
 function josephusSurvivor(n, k) {
+  //populate the array with n elements
   let arr = [];
   for (let i = 1; i <= n; i++) {
     arr.push(i);
   }
-  let j = 0;
+  //pop every k element of array until only one remains
   while (arr.length > 1) {
-    j = (j + k - 1) % arr.length;
-    arr.splice(j, 1);
+    return arr.splice(Math.floor(k + 1), 1);
   }
 }
