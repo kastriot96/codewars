@@ -18,13 +18,30 @@ Notes and tips: using the solution to the other kata to check your function may 
 */
 
 function josephusSurvivor(n, k) {
-  //populate the array with n elements
-  let arr = [];
-  for (let i = 1; i <= n; i++) {
-    arr.push(i);
+  //Find the starting delete position
+  let deletePosition = k > n ? (k % n) - 1 : k - 1;
+
+  //If n is a multiple of k, set start delete position to final element
+  if (deletePosition == -1) {
+    deletePosition = n - 1;
   }
-  //pop every k element of array until only one remains
-  while (arr.length > 1) {
-    return arr.splice(Math.floor(k + 1), 1);
+
+  //Create an array from 1 - n
+  let array = new Array(n);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = i + 1;
   }
+
+  //Return array after splicing delete position, moving delete position,
+  //and then adjusting for changing size of array
+  while (array.length > 1) {
+    array.splice(deletePosition, 1);
+    deletePosition += k - 1;
+    while (deletePosition >= array.length) {
+      deletePosition -= array.length;
+    }
+  }
+
+  //Return survivor
+  return array[0];
 }
