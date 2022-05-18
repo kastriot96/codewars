@@ -8,4 +8,14 @@ Because you are scared and stressed you have forgotten how to use the standard r
 
 */
 
-weirdReverse=a=> //-Braaains!..
+weirdReverse = (a) => {
+  let array = [];
+  for (let i = a.length - 1; i >= 0; i--) {
+    if (Array.isArray(a[i])) {
+      array.push(weirdReverse(a[i]));
+    } else {
+      array.push(a[i]);
+    }
+  }
+  return array;
+}; //-Braaains!..
