@@ -18,4 +18,6 @@ weirdReverse = (a) => {
     }
   }
   return array;
-}; //-Braaains!..
+};
+
+weirdReverse([1, 2, 3, "a", "b", "c", []]);
