@@ -22,4 +22,13 @@ Time constraints:
 
 */
 
-function sumOfSquares(n) {}
+function sumOfSquares(n) {
+  let sqrt = Math.sqrt(n);
+  let sum = 0;
+  let i = 1;
+  while (sum < n) {
+    sum += Math.pow(i, 2);
+    i++;
+  }
+  return i - 1;
+}
