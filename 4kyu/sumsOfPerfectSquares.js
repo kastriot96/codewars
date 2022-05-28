@@ -22,13 +22,22 @@ Time constraints:
 
 */
 
-function sumOfSquares(n) {
-  let sqrt = Math.sqrt(n);
-  let sum = 0;
-  let i = 1;
-  while (sum < n) {
-    sum += Math.pow(i, 2);
-    i++;
+function howManySquares(num) {
+  if (num <= 3) {
+    return num;
   }
-  return i - 1;
+
+  result = num;
+
+  for (let i = 1; i < num + 1; i++) {
+    temp = i * i;
+    if (temp > num) {
+      break;
+    } else {
+      result = Math.min(result, 1 + howManySquares(num - temp));
+    }
+  }
+  return result;
 }
+
+console.log(howManySquares(29));
