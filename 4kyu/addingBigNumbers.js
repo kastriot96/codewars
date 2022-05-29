@@ -13,42 +13,14 @@ The numbers are positives
 */
 
 function add(a, b) {
-  //the input numbers are big
-  //the input is a string of only digits
-  //the numbers are positives
-  let sum = 0;
-  let carry = 0;
-  let result = "";
-  let aLength = a.length;
-  let bLength = b.length;
-  let maxLength = Math.max(aLength, bLength);
-  let minLength = Math.min(aLength, bLength);
-  let max = aLength > bLength ? a : b;
-  let min = aLength > bLength ? b : a;
-  for (let i = 0; i < maxLength; i++) {
-    let aDigit = i < aLength ? a[aLength - i - 1] : 0;
-    let bDigit = i < bLength ? b[bLength - i - 1] : 0;
-    let digit = (parseInt(aDigit) + parseInt(bDigit) + carry) % 10;
-    carry = Math.floor((parseInt(aDigit) + parseInt(bDigit) + carry) / 10);
-    result = digit + result;
-  }
-  if (carry > 0) {
-    result = carry + result;
-  }
-  return result;
-}
-/*
-
-function add (a, b) {
-  let res = '', c = 0
-  a = a.split('')
-  b = b.split('')
+  let res = "",
+    c = 0;
+  a = a.split("");
+  b = b.split("");
   while (a.length || b.length || c) {
-    c += ~~a.pop() + ~~b.pop()
-    res = c % 10 + res
-    c = c > 9
+    c += ~~a.pop() + ~~b.pop();
+    res = (c % 10) + res;
+    c = c > 9;
   }
-  return res
+  return res;
 }
-
-*/
