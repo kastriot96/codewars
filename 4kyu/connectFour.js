@@ -25,5 +25,18 @@ You should return "Yellow", "Red" or "Draw" accordingly.
 */
 
 function whoIsWinner(piecesPositionList) {
-  //return "Red", "Yellow" or "Draw"
+  //grid 6x7, those being named from A to G
+  let grid = [
+    [A, B, C, D, E, F, G],
+    [A, B, C, D, E, F, G],
+    [A, B, C, D, E, F, G],
+    [A, B, C, D, E, F, G],
+    [A, B, C, D, E, F, G],
+    [A, B, C, D, E, F, G],
+  ];
+  let count = 0;
+  let winner = "";
+  let color = "";
+  let column = "";
+  let row = "";
 }
