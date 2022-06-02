@@ -34,9 +34,19 @@ function whoIsWinner(piecesPositionList) {
     [A, B, C, D, E, F, G],
     [A, B, C, D, E, F, G],
   ];
-  let count = 0;
-  let winner = "";
-  let color = "";
-  let column = "";
-  let row = "";
+  //check if draw
+  if (piecesPositionList.length === 42) {
+    return "Draw";
+  }
+  //check if there is a winner
+  for (let i = 0; i < piecesPositionList.length; i++) {
+    let piece = piecesPositionList[i];
+    let [row, column] = piece.split("_");
+    let color = column[0];
+    let rowNumber = row.charCodeAt(0) - 65;
+    grid[rowNumber][column.charCodeAt(0) - 65] = color;
+    if (checkForWinner(grid, color)) {
+      return color;
+    }
+  }
 }
