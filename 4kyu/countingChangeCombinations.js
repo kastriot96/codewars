@@ -18,5 +18,11 @@ Your function should take an amount to change and an array of unique denominatio
 
 */
 var countChange = function (money, coins) {
-  // your implementation here
+  //count combinations where the sum of each value in coins array is equal to money
+  let count = 0;
+  for (let i = 0; i < coins.length; i++) {
+    if (coins[i] === money) {
+      count++;
+    }
+  }
 };
