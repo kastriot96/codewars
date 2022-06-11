@@ -17,12 +17,25 @@ Your function should take an amount to change and an array of unique denominatio
 
 
 */
-var countChange = function (money, coins) {
-  //count combinations where the sum of each value in coins array is equal to money
-  let count = 0;
-  for (let i = 0; i < coins.length; i++) {
-    if (coins[i] === money) {
-      count++;
+function countChange(money, coins) {
+  // find the divisors of the money
+  let divisors = [];
+  for (let i = 1; i <= money; i++) {
+    if (money % i === 0) {
+      divisors.push(i);
     }
   }
-};
+  //sort the array of coins from the smallest to the largest
+  let sortedCoins = coins.sort((a, b) => a - b);
+
+  //compare the array of divisors with the array of sortedCoins and make an array of common values
+  let commonValues = [];
+  for (let i = 0; i < divisors.length; i++) {
+    for (let j = 0; j < sortedCoins.length; j++) {
+      if (divisors[i] === sortedCoins[j]) {
+        commonValues.push(divisors[i]);
+      }
+    }
+  }
+}
+countChange(4);
