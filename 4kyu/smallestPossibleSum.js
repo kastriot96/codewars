@@ -31,4 +31,19 @@ https://www.codewars.com/kata/52f677797c461daaf7000740/train/javascript
 
 */
 
-function solution(numbers) {}
+function solution(numbers) {
+  let sum = 0;
+  let i = 0;
+  while (i < numbers.length) {
+    let j = i + 1;
+    while (j < numbers.length) {
+      if (numbers[i] > numbers[j]) {
+        numbers[i] = numbers[i] - numbers[j];
+      }
+      j++;
+    }
+    sum += numbers[i];
+    i++;
+  }
+  return sum;
+}
